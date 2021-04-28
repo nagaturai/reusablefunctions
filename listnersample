@@ -1,0 +1,100 @@
+@Override
+	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
+		if (method.isTestMethod()) {
+			String browserName = System.getProperty("browser").toLowerCase();
+			WebDriver driver = DriverClass.createInstance(browserName);
+			DriverManager.setDriver(driver);
+			WebDriver driverInstance = DriverManager.getDriver();
+			driverInstance.manage().deleteAllCookies();
+			driverInstance.manage().window().maximize();
+			driverInstance.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			
+				driverInstance.get(SetUpTest.strUrlVal);
+				log.info("URL launched " + SetUpTest.strUrlVal);
+				log.info("Launched Browser");
+			SetUpTest.scenarioName = method.getTestMethod().getMethodName()/* + "_" + System.nanoTime() */;
+			Reporter.getCurrentTestResult().getTestContext()
+			.setAttribute("methodName" + Thread.currentThread().hashCode(), SetUpTest.scenarioName);
+			SetUpTest.blnPortFlag = false;
+			Reporter.getCurrentTestResult().getTestContext()
+			.setAttribute("portFlag" + Thread.currentThread().hashCode(), SetUpTest.blnPortFlag);
+		}
+	}
+
+	@Override
+	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+		if (method.isTestMethod()) {
+			if (DriverManager.getDriver() != null) {
+				log.info("Thread id = " + Thread.currentThread().getId());
+				log.info("Hashcode of webDriver instance = " + DriverManager.getDriver().hashCode());
+				this.extLogger = (ExtentTest) Reporter.getCurrentTestResult().getTestContext()
+						.getAttribute("extLogger" + Thread.currentThread().hashCode());
+			}
+		}
+	}
+
+	@Override
+	public synchronized String getTestName(ITestResult result) {
+		String customMethod = null;
+		Object[] dataSet = result.getParameters();
+		Map<Object, String> testData = new HashMap<Object, String>();
+//		testData = Utils.getStringAsMap(dataSet[0].toString().replaceAll("[{}]", ""), ",", "=");
+		String testCaseKey = testData.get("TestCaseID") + "-" + result.getMethod().getMethodName();
+		customMethod = testCaseKey /* + " : " + testNameKey */;
+		log.info("in get TestName and custom name is " + customMethod);
+		return customMethod;
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+
+	}
+	public boolean retry(ITestResult iTestResult) {
+		if (!iTestResult.isSuccess()) {
+			if (retryCounter < retryLimit) {
+				retryCounter++;
+				WebDriver driverInstance = DriverManager.getDriver();
+				driverInstance.manage().deleteAllCookies();
+				
+					driverInstance.get(SetUpTest.strUrlVal);
+				
+				ArrayList<String> tabs = new ArrayList<String>(driverInstance.getWindowHandles());
+				if(tabs.size()>1) { driverInstance.switchTo().window(tabs.get(1)); 
+				driverInstance.close();
+				driverInstance.switchTo().window(tabs.get(0)); }
+				try {
+					iTestResult.setStatus(ITestResult.FAILURE);
+					extendReportsFailOperations(iTestResult);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return true;
+			} else {
+				iTestResult.setStatus(ITestResult.FAILURE);
+			}
+		} else {
+			iTestResult.setStatus(ITestResult.SUCCESS);
+		}
+		return false;
+	}
+
+	public void extendReportsFailOperations(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			Object[] dataSet = iTestResult.getParameters();
+			Map<Object, String> testData = new HashMap<Object, String>();
+//			testData = Utils.getStringAsMap(dataSet[0].toString().replaceAll("[{}]", ""), ",", "=");
+			String testCaseKey = testData.get("TestCaseID") + "-" + iTestResult.getMethod().getMethodName();
+			extLogger = (ExtentTest) Reporter.getCurrentTestResult().getTestContext()
+					.getAttribute("extLogger" + Thread.currentThread().hashCode());
+			extLogger.log(Status.WARNING, "Retry for test name -" + testCaseKey + " is initiated" + "   ");
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+		annotation.setRetryAnalyzer(Listeners.class);
+	}
+
+}
+
