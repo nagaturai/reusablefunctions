@@ -1,4 +1,308 @@
-@Override
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion></modelVersion>
+	<groupId></groupId>
+	<artifactId></artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>webServices</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.26</version>
+		</dependency>
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
+			<version>11.2.0.3</version> </dependency> -->
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.26</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.33.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker-gae -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker-gae</artifactId>
+			<version>2.3.28</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.18</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.18</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/test/resources/Drivers/ojdbc14.jar</systemPath>
+			<!-- must match file name -->
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180813</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.53</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.zeroturnaround/zt-zip -->
+		<dependency>
+			<groupId>org.zeroturnaround</groupId>
+			<artifactId>zt-zip</artifactId>
+			<version>1.14</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<systemPropertyVariables>
+						<environment>${TestEnv}</environment>
+						<brand>${testXml}</brand>
+						<testType>${testType}</testType>
+						<browser>${browserName}</browser>
+						<qtest>${qtestFlag}</qtest>
+					</systemPropertyVariables>
+					<groups>${groupName}</groups>
+					<suiteXmlFiles>
+						<suiteXmlFile>
+							${basedir}/src/test/resources/testng/${testXml}.xml
+						</suiteXmlFile>
+					</suiteXmlFiles>
+					<!-- <reportsDirectory>src/test/reports-outputs</reportsDirectory> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc</artifactId>
+				<version>14</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
+
+Usefull dependencies
+package com.XX.webAutomation.common;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.IAnnotationTransformer;
+import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
+import org.testng.IRetryAnalyzer;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.ITestAnnotation;
+import org.testng.reporters.JUnitReportReporter;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.xx.webAutomation.controllers.DriverClass;
+import com.xx.webAutomation.controllers.DriverManager;
+import com.xx.webAutomation.controllers.SetUpTest;
+
+
+
+public class Listeners extends JUnitReportReporter implements ISuiteListener, ITestListener, IInvokedMethodListener,IRetryAnalyzer, IAnnotationTransformer {
+	private ExtentTest extLogger;
+	public int totalpassed, totaltcs, totalskipped, totalfailed;
+	Logger log = Log4jUtil.loadLogger(Listeners.class);
+	HashMap<String,String> testMap=null;
+	private int retryCounter = 0;
+	private int retryLimit = 0;
+	
+	public void onStart(ISuite suite) {
+		totalpassed = 0;
+		totaltcs = 0;
+		totalskipped = 0;
+		totalfailed = 0;
+	}
+
+	public void onFinish(ISuite suite) {
+		log.info("Total test cases   :" + (totalpassed + totalskipped + totalfailed));
+		log.info("Total passed cases :" + totalpassed);
+		log.info("Total failed cases :" + totalfailed);
+		log.info("Total skipped cases:" + totalskipped);
+	}
+
+	/*
+	 * For Test Listener related methods
+	 */
+	public void onStart(ITestContext test) {
+	}
+
+	public void onFinish(ITestContext test) {
+		log.info("All Tests Execution Completed");
+	}
+
+	public synchronized void onTestStart(ITestResult test) {
+		try {
+			totaltcs++;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void onTestSuccess(ITestResult test) {
+		totalpassed++;
+		extLogger.log(Status.PASS, "Test case passed: " + test.getName());
+	}
+
+	public synchronized void onTestFailure(ITestResult test) {
+		log.info("Test case failed: " + test.getName() + " --- Exception : " + test.getThrowable());
+		extLogger.log(Status.FAIL, "Test case failed: " + test.getName() + " --- Exception : " + test.getThrowable());
+		test.getThrowable().printStackTrace();
+		totalfailed++;
+	}
+
+	public synchronized void onTestSkipped(ITestResult test) {
+		log.info("Listener If test case skipped:" + test.getName() + " --- Exception : " + test.getThrowable());
+		extLogger.log(Status.SKIP, "Test case skipped: " + test.getName() + " --- Exception : " + test.getThrowable());
+		test.getThrowable().printStackTrace();
+		totalskipped++;
+	}
+
+	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
 		if (method.isTestMethod()) {
 			String browserName = System.getProperty("browser").toLowerCase();
@@ -97,4 +401,1692 @@
 	}
 
 }
+Usefull listeners
+
+package com.xx.webAutomation.common;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.log4j.Logger;
+import org.testng.ITestContext;
+import org.testng.annotations.DataProvider;
+
+import com.jayway.jsonpath.JsonPath;
+import com.xx.webAutomation.controllers.SetUpTest;
+
+public class ReadData extends SetUpTest {
+	static Logger log = Log4jUtil.loadLogger(ReadData.class);
+
+	private File jsonFileReader = new File(
+			System.getProperty("user.dir") + "//src//test//resources//testData//" + strBrand + ".json");
+
+	private File csvReaderFile;
+
+	public String get(String Key) throws IOException {
+		String value = "";
+		try {
+			value = JsonPath.read(jsonFileReader, "$." + Key);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+
+	
+	@DataProvider(name = "getCSVDataReader", parallel = true)
+	public Object[][] getCSVData(ITestContext ctx, Method method) throws Exception {
+		Object[][] obj = getCSVFileData(ctx.getName(), method.getName());
+		return obj;
+	}
+
+	public Object[][] getCSVFileData(String testName, String methodName) {
+		String testType = System.getProperty("testType");
+		Object[][] obj = null;
+		List<Map<String, Object>> matrix = new ArrayList<Map<String, Object>>();
+		CSVParser csvParser = null;
+		Reader csvReader = null;
+		int objPos = 0;
+		try {
+	
+				csvReaderFile = new File(System.getProperty("user.dir") + "//src//test//resources//testData//"
+						+ testName + suiteName + "//" + methodName + ".csv");
+			
+			csvReader = Files.newBufferedReader(Paths.get(csvReaderFile.toURI()));
+			csvParser = new CSVParser(csvReader, CSVFormat.DEFAULT);
+			List<String> columns = new ArrayList<String>();
+			List<CSVRecord> csvRecords = csvParser.getRecords();
+			// List<Map<String, Object>> matrix = new ArrayList<Map<String, Object>>();
+			csvRecordsOuterLoop: for (CSVRecord record : csvRecords) {
+
+				Map<String, Object> row = new HashMap<String, Object>();
+				for (int i = 0; i < record.size(); i++) {
+					if (record.getRecordNumber() == 1) {
+						for (String column : record)
+							columns.add(column);
+						continue csvRecordsOuterLoop;
+					}
+					String key = columns.get(i);
+					Object val = record.get(i);
+					row.put(key, val);
+				}
+				if (row.containsKey("Execute") && !row.containsValue("TRUE")) {
+					// matrix.remove(entry);
+					// log.info("The row is not required to be executed");
+				} else {
+					if (row.containsKey("TestType") && row.containsValue(testType)) {
+						matrix.add(row);
+					}
+				}
+				// matrix.add(row);
+			}
+			if (matrix.size() != 0) {
+				obj = new Object[matrix.size()][1];
+				for (Map<String, Object> entry : matrix) {
+					obj[objPos][0] = entry;
+					objPos++;
+				}
+				csvParser.close();
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+		return obj;
+	}
+
+	
+}
+
+Usefull  read functions
+
+
+package com.xx.webAutomation.common;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+public class Log4jUtil {
+
+	static Logger log;
+	public static final String filePath = System.getProperty("user.dir")
+			+ "/src/main/resources/commonConfig/log4j.properties";
+
+	static {
+		PropertyConfigurator.configure(filePath);
+	}
+
+	public static Logger loadLogger(Class<?> className) {
+		log = Logger.getLogger(className);
+		return log;
+	}
+
+}
+
+
+Useful log functions
+
+package com.xx.webAutomation.controllers;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import com.xx.webAutomation.common.Log4jUtil;
+
+public class DriverClass {
+	protected static Logger log = Log4jUtil.loadLogger(DriverClass.class);
+
+	public static WebDriver createInstance(String browserName) {
+		WebDriver driver = null;
+		if (browserName.toLowerCase().contains("firefox")) {
+			log.info("User Directory is: " + System.getProperty("user.dir"));
+			log.info("Chrome driver path is: " + System.getProperty("user.dir")
+					+ "\\src\\test\\resources\\Drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver",
+					System.getProperty("user.dir") + "\\src\\test\\resources\\Drivers\\geckodriver.exe");
+			driver = new FirefoxDriver();
+			return driver;
+		}
+		if (browserName.toLowerCase().contains("internet")) {
+			driver = new InternetExplorerDriver();
+			return driver;
+		}
+		if (browserName.toLowerCase().contains("chrome")) {
+			log.info("User Directory is: " + System.getProperty("user.dir"));
+
+			log.info("Chrome driver path is: " + System.getProperty("user.dir")
+					+ "\\src\\test\\resources\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",
+					System.getProperty("user.dir") + "\\src\\test\\resources\\Drivers\\chromedriver.exe");
+
+			/*
+			 * ChromeOptions options = new ChromeOptions();
+			 * options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+			 */
+			// driver = new ChromeDriver();
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");
+			options.addArguments("--disable-backgrounding-occluded-windows");
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setCapability("applicationCacheEnabled", false);
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
+			driver = new ChromeDriver(options);
+			return driver;
+		}
+		return driver;
+	}
+
+}
+
+
+Useful driver class functions
+
+
+package com.xx.webAutomation.controllers;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.xx.webAutomation.common.DBConnections;
+import com.xx.webAutomation.common.Log4jUtil;
+
+import org.apache.log4j.Logger;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class SetUpTest {
+	protected static Logger log = Log4jUtil.loadLogger(SetUpTest.class);
+	protected static String suiteName;
+	public static String strUrlVal;
+	public static String strClassName;
+	protected static String strEnv;
+	public static String strBrand;
+	protected static Properties props;
+	public static String scenarioName;
+	public static DBConnections db;
+	protected static String path;
+	protected static String UTILS_FILE_PATH;
+	protected static String reportPath;
+	protected static String successimagespath;
+	protected static String failureimagespath;
+	protected String reasonPastDue;
+	public static boolean blnPortFlag;
+
+	@BeforeMethod(alwaysRun = true)
+	public void startOfTest(ITestContext context, Method method) throws Exception {
+		log.info("***************** START TEST *****************");
+		strUrlVal = getURL(strEnv, strBrand);
+	}
+
+	@AfterMethod(alwaysRun = true)
+	public void tearDown(ITestResult testResult, ITestContext context) throws Exception {
+		String qtestStatus = null;
+		String brandName = null;
+		ExtentTest extLogger;
+		String scenario = (String) Reporter.getCurrentTestResult().getTestContext()
+				.getAttribute("scenario" + Thread.currentThread().hashCode());
+
+			brandName = strBrand;
+		
+		extLogger = (ExtentTest) Reporter.getCurrentTestResult().getTestContext()
+				.getAttribute("extLogger" + Thread.currentThread().hashCode());
+		if (testResult.getStatus() == ITestResult.FAILURE) {
+			qtestStatus = "FAILED";
+			log.info("Test -----" + brandName + "_" + scenario + "Failed");
+		} else if (testResult.getStatus() == ITestResult.SKIP) {
+			Throwable t = testResult.getThrowable();
+			log.info("Test -----" + brandName + "_" + scenario + "skipped with exception :" + t);
+		} else {
+			qtestStatus = "PASSED";
+			log.info("Test -----" + brandName + "_" + scenario + " successfully executed");
+		}
+		ExtentReports extentReport = (ExtentReports) Reporter.getCurrentTestResult().getTestContext()
+				.getAttribute("extentReport" + Thread.currentThread().hashCode());
+		extentReport.flush();
+
+		DriverManager.getDriver().quit();
+	}
+
+	@BeforeSuite(alwaysRun = true)
+	public void launchApplication(ITestContext ctx) throws Exception {
+		setPath();
+		suiteName = ctx.getCurrentXmlTest().getSuite().getName();
+		db = new DBConnections();
+		try {
+			strClassName = this.getClass().getSimpleName();
+			strBrand = strClassName;
+
+			strBrand = this.getClass().getSimpleName().replaceAll("Test.*", "").trim().toLowerCase();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		db.getConnection();
+//		log.info("DB instance " + db);
+	}
+
+	@AfterSuite(alwaysRun = true)
+	public void closeTheDBConnection() throws SQLException {
+//		db.closeDBConnection();
+	}
+
+	public String getURL(String env, String brand) throws FileNotFoundException, IOException {
+		Properties envProps = new Properties();
+			envProps.load(new FileInputStream(
+					System.getProperty("user.dir") + "/src/main/resources/webConfig/SIT.properties"));
+
+			strUrlVal = envProps.getProperty("shopify").replace("env", env).replaceAll("[{}]", "");
+
+		return strUrlVal;
+	}
+
+	private void setPath() {
+		{
+			props = new Properties();
+			path = System.getProperty("user.dir");
+			try {
+				strEnv = getEnv();
+				UTILS_FILE_PATH = path + "/src/main/resources/webConfig/utils.properties";
+				props.load(new FileInputStream(UTILS_FILE_PATH));
+				reportPath = props.getProperty("reportPath");
+				successimagespath = path + props.getProperty("successimagespath");
+				failureimagespath = path + props.getProperty("failureimagespath");
+				reasonPastDue = props.getProperty("reasonPastDue");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private String getEnv() throws Exception {
+		String env = System.getProperty("TestEnv").toLowerCase();
+		if (env == null) {
+			env = props.getProperty("defaultenv");
+			log.info("Default Environment: " + props.getProperty("defaultenv"));
+		} else {
+			log.info("Environment: " + env);
+		}
+		return env;
+	}
+}
+
+
+Useful setup
+
+
+import static org.testng.Assert.assertTrue;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import javax.imageio.ImageIO;
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.xx.webAutomation.common.DBConnections;
+import com.xx.webAutomation.common.Log4jUtil;
+import com.xx.webAutomation.controllers.DriverManager;
+import com.xx.webAutomation.controllers.SetUpTest;
+
+public class CommonUtilities extends SetUpTest {
+
+	protected WebDriver driverInstance = DriverManager.getDriver();
+	Logger log = Log4jUtil.loadLogger(CommonUtilities.class);
+	private String scenario;
+	private ExtentTest extLogger;
+	private String directory;
+	private DBConnections db;
+	private String strImage = "";
+
+
+	/*
+	 * public CommonUtilities(String scenario, ExtentTest extLogger) { this.db =
+	 * SetUpTest.db; this.scenario = scenario; this.extLogger = extLogger; }
+	 */
+
+	public CommonUtilities(String scenario) {
+		this.db = SetUpTest.db;
+		this.scenario = scenario;
+		this.extLogger = (ExtentTest) Reporter.getCurrentTestResult().getTestContext()
+				.getAttribute("extLogger" + Thread.currentThread().hashCode());
+	}
+
+	public WebDriverWait driverWait() {
+		WebDriverWait explicitWait = new WebDriverWait(driverInstance, 120);
+		return explicitWait;
+	}
+
+	/**
+	 * METHOD DESCRIPTION HERE
+	 *
+	 * @author - HERE
+	 * @param - INPUT PARAM INFO / REMOVE IF NO INPUT PARAMS
+	 * @return - RETURN VALUES INFO / REMOVE IF NO RETURN VALUES
+	 */
+	public boolean isElementPresent(WebElement ele) {
+		try {
+			driverWait().until(ExpectedConditions.visibilityOf(ele));
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean click(WebElement locator) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				locator.click();
+				log.info("Clicked on element: " + locator);
+				blnVal = true;
+			}
+
+		} catch (Exception e) {
+			log.error("Unable to click on element: " + locator);
+			extLogger.log(Status.ERROR, "Unable to click on element: " + locator);
+			e.printStackTrace();
+			assertTrue(blnVal);
+			throw (e);
+		}
+		return blnVal;
+	}
+
+	public boolean type(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				if (locator.getText() != null || !locator.getText().equalsIgnoreCase("")) {
+					locator.clear();
+				}
+				locator.sendKeys(strData);
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			extLogger.log(Status.ERROR, "Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+
+	}
+
+	
+	public boolean Shoptype(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+			
+				try {
+					
+					Actions builder = new Actions(driverInstance);
+					builder.moveToElement(locator).click(locator).build().perform();
+					Thread.sleep(2000);
+					builder.sendKeys(strData).build().perform();
+					Thread.sleep(2000);
+					builder.sendKeys(Keys.ENTER).build().perform();
+					blnVal = true;
+				} catch (Exception e) {
+					extLogger.log(Status.ERROR, "Unable to select the element: " + locator);
+					assertTrue(blnVal);
+				}
+				return blnVal;
+
+
+	}
+	
+	public boolean type(WebElement locator, String message, String strData, boolean masked) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				if (locator.getText() != null || !locator.getText().equalsIgnoreCase("")) {
+					locator.clear();
+				}
+				locator.sendKeys(strData);
+				if (masked)
+					strData = getMasked(strData);
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			extLogger.log(Status.ERROR, "Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+
+	}
+
+	public static String getMasked(String data) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < data.length(); i++)
+			sb.append('*');
+		return sb.toString();
+	}
+
+	/*
+	 * This method is used to click on the element using Javascript
+	 * @param: By
+	 * @return: NA
+	 */
+	// - modified method to add explicit wait and called new method to
+	// capture screenshot
+	public boolean JSClick(WebElement locator) throws Exception {
+		boolean flag = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				JavascriptExecutor executor = (JavascriptExecutor) driverInstance;
+				executor.executeScript("arguments[0].click();", locator);
+				log.info("Clicked on the element using Javascript: " + locator);
+				flag = true;
+			}
+		} catch (Exception e) {
+			log.error("Error in clicking on the element using Javascript: " + locator);
+			extLogger.log(Status.ERROR, "Error in clicking on the element using Javascript: " + locator);
+			e.printStackTrace();
+			assertTrue(flag);
+			throw (e);
+
+		}
+		return flag;
+
+	}
+
+	public boolean JSWebElementClick(WebElement locator) throws Exception {
+		boolean flag = false;
+		try {
+			JavascriptExecutor executor = (JavascriptExecutor) driverInstance;
+			executor.executeScript("arguments[0].click();", locator);
+			log.info("Clicked on the element using Javascript: " + locator);
+			flag = true;
+		} catch (Exception e) {
+			log.error("Error in clicking on the element using Javascript: " + locator);
+			extLogger.log(Status.ERROR, "Error in clicking on the element using Javascript: " + locator);
+			e.printStackTrace();
+			assertTrue(flag);
+			throw (e);
+		}
+		return flag;
+	}
+
+	public void pageRefresh() throws Exception {
+		checkPageLoad();
+		driverInstance.navigate().refresh();
+		Thread.sleep(2000);
+	}
+
+	public void checkPageLoad() {
+		JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+		for (int i = 0; i < 60; i++) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
+			if ((js.executeScript("return document.readyState").toString().equals("complete"))
+					/*&& ((Long) js.executeScript("return jQuery.active") == 0)*/) {
+				break;
+			}
+		}
+	}
+
+//  - method to select element from drop down by text
+	public boolean selectFromDDByText(WebElement locator, String textToSelect) throws Exception {
+		boolean blnVal = false;
+
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				Select selectDD = new Select(locator);
+				selectDD.selectByVisibleText(textToSelect);
+				log.info("Selected : " + textToSelect);
+				extLogger.log(Status.INFO, "Selected : " + textToSelect);
+				blnVal = true;
+			}
+
+		} catch (Exception e) {
+			log.error("Unable to select the element: " + locator);
+			extLogger.log(Status.ERROR, "Unable to select the element: " + locator);
+			assertTrue(blnVal);
+			throw (e);
+
+		}
+		return blnVal;
+	}	
+// - modified method to add explicit wait and called new method to
+	// capture screenshot
+	public boolean waitForElement(WebElement locator) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+			if (locator.isDisplayed()) {
+				if (js.executeScript("return document.readyState").toString().equals("complete")) {
+					log.info("Element found: " + locator);
+					blnVal = true;
+				}
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Element not found : " + locator);
+			extLogger.log(Status.INFO, "Element not found : " + locator);
+		}
+		return blnVal;
+	}
+
+	public boolean waitForElementInvisibility(By locator) throws Exception {
+		boolean blnVal = false;
+		try {
+			if (driverWait().until(ExpectedConditions.invisibilityOfElementLocated(locator))) {
+				log.info("Element " + locator + "is no more visible");
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.info("Element " + locator + "is still visible");
+			extLogger.log(Status.ERROR, "Element " + locator + "is still visible");
+		}
+		return blnVal;
+	}
+
+	public boolean waitForElementVisibility(WebElement locator) throws Exception {
+		boolean blnVal = false;
+		try {
+			if (driverWait().until(ExpectedConditions.visibilityOf(locator)) != null) {
+				log.info("Element " + locator + "is no more visible");
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.info("Element " + locator + "is still visible");
+			extLogger.log(Status.ERROR, "Element " + locator + "is still visible");
+		}
+		return blnVal;
+	}
+
+	// - method to refresh the page
+	public void refreshPage() throws Exception {
+		driverInstance.navigate().refresh();
+		JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+		if (js.executeScript("return document.readyState").toString().equals("complete")) {
+		}
+		;
+	}
+
+	public void clearTxt(WebElement locator) throws Exception {
+		if (!locator.getText().equals("")) {
+			locator.clear();
+		}
+		log.info("Cleared default text in the text box");
+	}
+
+	//Method to capture screenshot
+	public synchronized void generateScreenShot(String testName, Map<Object, String> testData) {
+			this.directory = reportPath + "\\" + new SimpleDateFormat("MM-dd-yyyy").format(new Date()) + "\\"
+					+ suiteName.toUpperCase() + "\\" + strBrand + "\\" + scenario + "\\";
+		String pathforscreenshot;
+		try {
+			String timestamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+			pathforscreenshot = this.directory + testName + timestamp + ".png";
+			File targetfile = new File(pathforscreenshot);
+			File scrFile = ((TakesScreenshot) driverInstance).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, targetfile);
+		} catch (Exception e) {
+			extLogger.log(Status.ERROR, "Screenshot not generated : ");
+			e.printStackTrace();
+		}
+	}
+
+	
+
+	// Added method which returns path which is used to save images of
+	// captured screenshots in
+	// each step which is used in Extent report
+	public String captureScreen() throws IOException {
+		String dest = null;
+		try {
+			path = successimagespath + "\\" + new SimpleDateFormat("MM-dd-yyyy").format(new Date()) + "\\" + scenario
+					+ "\\";
+			TakesScreenshot screen = (TakesScreenshot) driverInstance;
+			File src = screen.getScreenshotAs(OutputType.FILE);
+			String timestamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+			dest = directory + timestamp + ".png";
+			File target = new File(dest);
+			FileUtils.copyFile(src, target);
+
+		} catch (Exception e) {
+			log.info("Have not captured screenshot");
+		}
+		return dest;
+	}
+
+	// - method to switch browser tab / new window
+	public void switchToNewWindow(int windowNumber) throws Exception {
+		ArrayList<String> tabs = new ArrayList<String>(driverInstance.getWindowHandles());
+		driverInstance.switchTo().window(tabs.get(windowNumber));
+	}
+
+	// - method to switch browser parent window
+	public void switchToParentWindow() throws Exception {
+		driverInstance.switchTo().defaultContent();
+	}
+
+	public void getWindow() throws Exception {
+		driverInstance.getWindowHandle();
+	}
+
+	// - method to select element from drop down by index
+	public boolean selectFromDDByIndex(WebElement locator, int index) throws Exception {
+		boolean blnVal = false;
+
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				Select selectDD = new Select(locator);
+				selectDD.selectByIndex(index);
+				extLogger.log(Status.INFO, "Selected : card at index " + index);
+				blnVal = true;
+			}
+
+		} catch (Exception e) {
+			log.error("Unable to select the element: " + locator);
+			extLogger.log(Status.ERROR, "Unable to select the element: " + locator);
+			assertTrue(blnVal);
+			throw (e);
+
+		}
+		return blnVal;
+	}
+
+	// - method to select element from drop down by value
+	public boolean selectFromDDByValue(WebElement locator, String value) throws Exception {
+		boolean blnVal = false;
+
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				Select selectDD = new Select(locator);
+				selectDD.selectByValue(value);
+				extLogger.log(Status.INFO, "Selected : card at value " + value);
+				blnVal = true;
+			}
+
+		} catch (Exception e) {
+			log.error("Unable to select the element: " + locator);
+			extLogger.log(Status.ERROR, "Unable to select the element: " + locator);
+			assertTrue(blnVal);
+			throw (e);
+
+		}
+		return blnVal;
+	}
+
+	// - method to handle drop down value by sending text
+	public boolean selectFromDDAngularWeb(WebElement locator, String DDValue) throws Exception {
+		boolean blnVal = false;
+		try {
+			Actions builder = new Actions(driverInstance);
+			builder.moveToElement(locator).click(locator).build().perform();
+			Thread.sleep(2000);
+			builder.sendKeys(DDValue).build().perform();
+			Thread.sleep(2000);
+			builder.sendKeys(Keys.ENTER).build().perform();
+			blnVal = true;
+		} catch (Exception e) {
+			extLogger.log(Status.ERROR, "Unable to select the element: " + locator);
+			assertTrue(blnVal);
+		}
+		return blnVal;
+
+	}
+
+
+
+	// :Method is modified from window to tab
+	public void switchToTab(int tabNumber) throws Exception {
+		ArrayList<String> tabs = new ArrayList<String>(driverInstance.getWindowHandles());
+		driverInstance.switchTo().window(tabs.get(tabNumber));
+	}
+
+	// - method to handle mouseOver action
+	public boolean moveHover(WebElement locator1, WebElement locator2) throws Exception {
+		boolean blnval = false;
+		try {
+			Actions action = new Actions(driverInstance);
+			action.moveToElement(locator1).moveToElement(locator2).click(locator2).build().perform();
+			blnval = true;
+		} catch (Exception e) {
+			extLogger.log(Status.ERROR, "Unable to hover the element ");
+			assertTrue(blnval);
+		}
+		return blnval;
+	}
+
+
+	// - method to getText of a locator and log
+	public String getElementText(WebElement locator, String message) throws Exception {
+		String strRetVal = null;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				strRetVal = locator.getText();
+				log.info("Successfully captured text from " + message + ": " + strRetVal);
+			}
+
+		} catch (Exception e) {
+
+			log.error("Unable to captured the text :" + locator);
+			extLogger.log(Status.ERROR, "Unable to captured the text :" + locator);
+			e.printStackTrace();
+			assertTrue(false);
+			throw (e);
+		}
+		return strRetVal;
+	}
+
+	// - method to handle drag and drop action
+	public void dragAndDrop(By source, By destination) {
+		WebElement e1 = driverInstance.findElement(source);
+		WebElement e2 = driverInstance.findElement(destination);
+		Actions a = new Actions(driverInstance);
+		a.dragAndDrop(e1, e2).build().perform();
+	}
+
+	// - method to scroll to view and locate element
+	public boolean scrollToView(WebElement locator) throws Exception {
+		boolean blnval = false;
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+			js.executeScript("arguments[0].scrollIntoView();", locator);
+			blnval = true;
+		} catch (Exception e) {
+			assertTrue(blnval);
+		}
+		return blnval;
+	}
+
+	// - method to open new tab
+	public void newTabAndSwitch() {
+		((JavascriptExecutor) driverInstance).executeScript("window.open();");
+		ArrayList<String> tabs = new ArrayList<String>(driverInstance.getWindowHandles());
+		driverInstance.switchTo().window(tabs.get(1)); // switches to new tab
+	}
+
+	public String addDaysToCurrentDate(int period, String format) {
+		Calendar currentDate = Calendar.getInstance();
+		currentDate.setTime(new Date());
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		sdf.setTimeZone(TimeZone.getTimeZone("ET"));
+		currentDate.add(Calendar.DAY_OF_MONTH, period);
+		String date = sdf.format(currentDate.getTime());
+
+		System.out.println("The generated date(Expected Date) is: " + date);
+		return date;
+	}
+
+	public String addDaysToSpecifiedDate(int period, String format, String strDate) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Date dt = sdf.parse(strDate);
+		Calendar currentDate = Calendar.getInstance();
+		currentDate.setTime(dt);
+		currentDate.add(Calendar.DAY_OF_MONTH, period);
+		currentDate.setTimeZone(TimeZone.getTimeZone("ET"));
+		String date = sdf.format(currentDate.getTime());
+		return date;
+	}
+
+	public int generateRandomDigits(int n) {
+		int m = (int) Math.pow(10, n - 1);
+		return m + new Random().nextInt(9 * m);
+	}
+
+	public boolean click(WebElement locator, String locatorName) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				Thread.sleep(500);
+				locator.click();
+				log.info("Clicked on element: " + locator);
+				extLogger.log(Status.INFO, "Successfully clicked " + locatorName);
+				blnVal = true;
+				Thread.sleep(1000);
+			}
+		} catch (Exception e) {
+			log.error("Unable to click on element: " + locator);
+			extLogger.log(Status.ERROR, "Unable to click on element: " + locator);
+			e.printStackTrace();
+			assertTrue(blnVal);
+			throw (e);
+		}
+		return blnVal;
+	}
+
+	
+
+	// mouseover to a specific element
+	public void moveHover(WebElement locator) throws Exception {
+
+		Actions action = new Actions(driverInstance);
+		action.moveToElement(locator).click(locator);
+		action.perform();
+	}
+
+	// - get attriute value
+	public String getAttributeValue(WebElement locator, String message) throws Exception {
+		String strRetVal = null;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				strRetVal = locator.getAttribute("value");
+				log.info("Successfully captured text from " + message + ": " + strRetVal);
+			}
+
+		} catch (Exception e) {
+
+			log.error("Unable to captured the text :" + locator);
+			extLogger.log(Status.ERROR, "Unable to captured the text :" + locator);
+			e.printStackTrace();
+			throw (e);
+		}
+		return strRetVal;
+	}
+
+	// - method for type using get attribute
+	public boolean typeAttribute(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.visibilityOf(locator));
+			if (locator.isDisplayed()) {
+				if (!locator.getAttribute("value").equals("")) {
+					locator.clear();
+				}
+				Thread.sleep(5000);
+				locator.clear();
+				locator.sendKeys(strData);
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			extLogger.log(Status.ERROR, "Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+	}
+
+	// - method to verify that the page is completely loaded
+	public void waitForPageLoad() {
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driverInstance).executeScript("return document.readyState")
+						.equals("complete");
+			}
+		};
+		try {
+			WebDriverWait wait = new WebDriverWait(driverInstance, 30);
+			wait.until(expectation);
+		} catch (Throwable error) {
+			Assert.fail("Timeout waiting for Page Load Request to complete.");
+		}
+	}	
+
+	// - method to select element from drop down by text
+	public int getNoOfOptionsFromDropDown(WebElement locator) throws Exception {
+		int numberOfOptions = 0;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				Select selectDD = new Select(locator);
+			List<WebElement> options = selectDD.getOptions();
+				numberOfOptions = options.size();
+				log.info("Number of options are : " + options.size());
+				extLogger.log(Status.INFO, "Number of options are : " + options.size());
+			}
+
+		} catch (Exception e) {
+			extLogger.log(Status.ERROR, "Unable to get the options for : " + locator);
+			log.error("Unable to get the options for : " + locator);
+			throw (e);
+		}
+		return numberOfOptions;
+	}
+
+	// - Added method to type characters one by one
+	public boolean typeChars(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.visibilityOf(locator));
+			if (locator.isDisplayed()) {
+				if (locator.getText() != null || !locator.getText().equalsIgnoreCase("")) {
+					locator.clear();
+				}
+				locator.sendKeys(Keys.chord(strData));
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			extLogger.log(Status.ERROR, "Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+
+	}
+
+	private String strrev(String str) {
+		if (str == null)
+			return "";
+		String revstr = "";
+		for (int i = str.length() - 1; i >= 0; i--) {
+			revstr += str.charAt(i);
+		}
+		return revstr;
+	}
+
+	public void scrollToElement(int x_coordinate, int y_coordinate) {
+		JavascriptExecutor javScriptExecutor = (JavascriptExecutor) driverInstance;
+		javScriptExecutor.executeScript("window.scrollBy(" + x_coordinate + ", " + y_coordinate + ");");
+	}
+
+	public boolean typeAndEnter(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.visibilityOf(locator));
+			if (locator.isDisplayed()) {
+				if (locator.getText() != null || !locator.getText().equalsIgnoreCase("")) {
+					locator.clear();
+				}
+				locator.sendKeys(strData + Keys.ENTER);
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+
+	}
+
+	// - method to switch to a frame id 
+	public void switchToIFrame(String frameId) {
+		driverInstance.switchTo().frame(frameId);
+	}
+
+
+	/*
+	 * This method is used to encode and resize the captured image
+	 * @param: RenderedImage, Integer, Integer
+	 * @return: String
+	 */
+	public String imgToBase64String(final RenderedImage img, int width, int height) {
+		final ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+		try {
+			Image tmp = ((Image) img).getScaledInstance(width, height, Image.SCALE_SMOOTH);
+			BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g2d = resizedImage.createGraphics();
+			g2d.drawImage(tmp, 0, 0, null);
+			g2d.dispose();
+			ImageIO.write(resizedImage, "png", java.util.Base64.getEncoder().wrap(byteStream));
+			return byteStream.toString(StandardCharsets.ISO_8859_1.name());
+		} catch (final IOException ioe) {
+			throw new UncheckedIOException(ioe);
+		}
+	}
+
+	/*
+	 * This method is used to take screenshot at page level
+	 * @param: String
+	 * @return:
+	 */
+	public void addScreenshotToStep(String strMssg) throws Exception {
+		if (!suiteName.equalsIgnoreCase("tas")) {
+			checkPageLoad();
+		}
+		extLogger.log(Status.INFO, "<font color=\"#120B63\" style=\"font-size:22px\"><b>" + strMssg + "</b></font>",
+				MediaEntityBuilder.createScreenCaptureFromBase64String(generatePageScreenshot()).build());
+	}
+	/*
+	 * This method is used to click on the element using Javascript
+	 */
+	public WebDriverWait elementWait() {
+		WebDriverWait elementWait = new WebDriverWait(driverInstance, 120);
+		return elementWait;
+	}
+	/*
+	 * This method is used to capture screenshot in page wise (As and When required)
+	 * @param: NA
+	 * @return: String
+	 */
+	public String generatePageScreenshot() throws IOException {
+		try {
+			int width = 800;
+			File src = ((TakesScreenshot) driverInstance).getScreenshotAs(OutputType.FILE);
+			BufferedImage img = ImageIO.read(src);
+			strImage = imgToBase64String(img, width, width * img.getHeight() / img.getWidth());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return strImage;
+	}
+
+	/***  Get the href attribute of a WebElement ***/
+	public String getAttributehref(WebElement locator, String message) throws Exception {
+		String strRetVal = null;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				strRetVal = locator.getAttribute("href");
+			}
+		} catch (Exception e) {
+			log.error("UNABLE TO CAPTURE HREF ATTRIBUTE :" + locator);
+			e.printStackTrace();
+			throw (e);
+		}
+		return strRetVal;
+	}
+
+	/*** - Get the list of WebElement href attributes ***/
+	public List<String> getListOfAttributeshref(List<WebElement> locators, String message) throws Exception {
+		List<String> hrefAttributes = new ArrayList<String>();
+
+		try {
+			for (int i = 0; i < locators.size(); i++) {
+				if (scrollToView(locators.get(i))) {
+					hrefAttributes.add(getAttributehref(locators.get(i), message));
+				}
+			}
+		} catch (Exception e) {
+			log.error("Unable to capture the href:" + locators);
+			e.printStackTrace();
+			throw (e);
+		}
+		return hrefAttributes;
+	}
+
+	/*** - Get the List Webelements Texts ***/
+	public List<String> getListOfElementsText(List<WebElement> locators, String message) {
+		List<String> textValues = new ArrayList<String>();
+		try {
+			for (int i = 0; i < locators.size(); i++) {
+				if (scrollToView(locators.get(i))) {
+					textValues.add(getElementText(locators.get(i), message));
+				}
+			}
+		} catch (Exception e) {
+			log.error(e);
+			e.printStackTrace();
+			assertTrue(false);
+		}
+		return textValues;
+	}
+	
+
+	//  -  mouseover to a specific element
+	public void mouseOver(WebElement locator) throws Exception {
+		Actions action = new Actions(driverInstance);
+		action.moveToElement(locator);
+		action.perform();
+	}
+	/*
+	@param: List of WebElements for the images
+	Check whether there are any broken device images
+	 * **/
+
+	public boolean checkForBrokenLinks(List<WebElement> imageLinks, String attribute) throws Exception{
+		waitForPageLoad();
+		String url=null;
+		int respCode=200;
+		WebElement imageEle=null;
+		HttpURLConnection huc=null;
+		List<WebElement> links=imageLinks;
+		Iterator<WebElement> it=links.iterator();
+		while(it.hasNext()){
+			imageEle=it.next();
+			scrollToView(imageEle);
+			url=imageEle.getAttribute(attribute);
+			System.out.println(url);
+			if(url == null || url.isEmpty()){
+				System.out.println("URL is either not configured for anchor tag or it is empty");
+				continue;
+			}
+			try {
+				Thread.sleep(1000);
+				huc = (HttpURLConnection)(new URL(url).openConnection());
+				huc.setRequestMethod("HEAD");
+				huc.connect();
+				respCode = huc.getResponseCode();
+				if(respCode >= 400){
+					System.out.println(url+" is a broken link");
+					return false;
+				}
+				else{
+					System.out.println(url+" is a valid link");
+				}
+			} catch (MalformedURLException e) {
+				System.out.println("Malformed link url: "+url);
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+
+	// - added method to get randomEmailID for commerce as maximum characters for allowed by yopmail is 25
+	public String randomEmailIDCommerce() {
+		String strVal = new SimpleDateFormat("yyMMddhhmmssMs").format(new Date());
+		return strEnv + System.nanoTime() + "@yopmail.com";
+	}
+
+	public boolean typeWithJS(WebElement locator, String message, String strData) throws Exception {
+		boolean blnVal = false;
+		try {
+			driverWait().until(ExpectedConditions.elementToBeClickable(locator));
+			if (locator.isDisplayed()) {
+				if (locator.getText() != null || !locator.getText().equalsIgnoreCase("")) {
+					locator.clear();
+				}
+				JavascriptExecutor executor = (JavascriptExecutor) driverInstance;
+				executor.executeScript("arguments[0].value='"+strData+"';", locator);
+				locator.click();
+				log.info("Text entered in the textbox is: " + strData);
+				extLogger.log(Status.INFO, message + strData);
+				blnVal = true;
+
+			}
+		} catch (RuntimeException localRuntimeException) {
+			log.error("Unable to Enter the value in the Textbox :" + locator);
+			extLogger.log(Status.ERROR, "Unable to Enter the value in the Textbox :" + locator);
+			throw (localRuntimeException);
+		}
+		return blnVal;
+
+	}	
+}
+
+
+Common utilities
+
+package com.xx.webAutomation.dao;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.FileUtils;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+import com.xx.webAutomation.common.DBConnections;
+import com.xx.webAutomation.common.Log4jUtil;
+import com.xx.webAutomation.common.ReadData;
+import com.xx.webAutomation.controllers.DriverManager;
+import com.xx.webAutomation.controllers.SetUpTest;
+import com.xx.webAutomation.objectRepository.ShopifyLocators;
+import com.xx.webAutomation.utils.CommonUtilities;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
+
+import io.restassured.response.Response;
+
+public class ShopifyDAO extends SetUpTest {
+
+	private WebDriver driverInstance;
+	private ShopifyLocators shopifyLocators;
+	public JavascriptExecutor js;
+	private ReadData rd;
+	private DBConnections db;
+	private CommonUtilities commonUtilities;
+	private String scenario;
+	private ExtentTest extLogger;
+	private String testScenario;
+	private Map<Object, String> testData;
+	private String directory;
+
+	static Logger log = Log4jUtil.loadLogger(ShopifyDAO.class);
+	ArrayList<String> tabs;
+
+	public ShopifyDAO(String scenario, Map<Object, String> testData) {
+		this.driverInstance = DriverManager.getDriver();
+		this.shopifyLocators = PageFactory.initElements(driverInstance, ShopifyLocators.class);
+		this.js = (JavascriptExecutor) driverInstance;
+		this.rd = new ReadData();
+		this.db = SetUpTest.db;
+		log.info("db instance in Dao " + this.db);
+		this.scenario = scenario;
+		this.testData = testData;
+		this.extLogger = (ExtentTest) Reporter.getCurrentTestResult().getTestContext()
+				.getAttribute("extLogger" + Thread.currentThread().hashCode());
+		this.commonUtilities = new CommonUtilities(scenario);
+	}
+
+	public void shopifyLogin(Map<Object, String> testData) throws Exception {
+		String strUserName = rd.get("ShopifyAdminUserName");
+		String strPassword = rd.get("ShopifyPassword");
+		extLogger.log(Status.INFO, "Opening Shopify URL and logging into the apllication");
+		commonUtilities.type(shopifyLocators.shopifyAdminUserName, "shopifyAdminUserName", strUserName);
+//		commonUtilities.click(shopifyLocators.nextBtn);
+//		commonUtilities.addScreenshotToStep("");
+//		commonUtilities.type(shopifyLocators.shopifyAdminPassword, "shopifyAdminPassword", strPassword, true);
+//		commonUtilities.click(shopifyLocators.nextBtn);
+//		commonUtilities.addScreenshotToStep("");
+		Thread.sleep(20000);
+//		if (driverInstance.getTitle().equalsIgnoreCase("Pega Dev Studio")) {
+//			log.info("Logged into the Pega application successfully");
+//			extLogger.log(Status.INFO, "Logged into the Pega application successfully");
+////			extLogger.pass("Login successful");
+//			driverInstance.manage().window().maximize();
+//			Dimension d = new Dimension(1382, 744);  //(x,y coordinators in pixels) 
+//			driverInstance.manage().window().setSize(d);
+//			return true;
+//		} else {
+//			extLogger.fail("Login failed");
+//			return false;
+//		}
+
+	}
+
+	public String shopifyStore(Map<Object, String> testData) throws Exception {
+		String oderNumber="";
+		extLogger.log(Status.INFO, "Opening Shopify URL and logging into the apllication");
+		String url = testData.get("URL");
+		driverInstance.get(url);
+		commonUtilities.waitForPageLoad();
+		commonUtilities.selectFromDDByIndex(shopifyLocators.productSize, 0);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.click(shopifyLocators.addToCart);
+		commonUtilities.waitForElement(shopifyLocators.viewMyCart);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.click(shopifyLocators.viewMyCart);
+		commonUtilities.waitForElement(shopifyLocators.updateCart);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.click(shopifyLocators.updateCart);
+		Thread.sleep(3000);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.JSClick(shopifyLocators.proceedToCheckout);
+		commonUtilities.waitForElement(shopifyLocators.customerEmail);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.type(shopifyLocators.customerEmail, "customerEmail", testData.get("CustomerEmail"));
+		commonUtilities.type(shopifyLocators.shippingFirstName, "shippingFirstName", testData.get("FirstName"));
+		commonUtilities.type(shopifyLocators.shippingLastName, "shippingLastName", testData.get("LastName"));
+		commonUtilities.type(shopifyLocators.shippingAddress, "shippingAddress", testData.get("ShippingAddress"));
+		commonUtilities.click(shopifyLocators.shippingLastName);
+		commonUtilities.type(shopifyLocators.shippingCity, "shippingCity", testData.get("ShippingCity"));
+		commonUtilities.selectFromDDByText(shopifyLocators.shippingCountry, testData.get("ShippingCountry"));
+		commonUtilities.selectFromDDByText(shopifyLocators.shippingTerritory, testData.get("ShippingTerritory"));
+		
+		commonUtilities.type(shopifyLocators.shippingPostCode, "shippingPostCode", testData.get("ShippingPostCode"));
+		commonUtilities.type(shopifyLocators.shippingPhone, "shippingPhone", testData.get("ShippingPhone"));
+		commonUtilities.addScreenshotToStep("");
+		Thread.sleep(3000);
+		commonUtilities.click(shopifyLocators.continueToShip);
+		commonUtilities.addScreenshotToStep("");
+		Thread.sleep(3000);
+		commonUtilities.click(shopifyLocators.continueToPayment);
+//		commonUtilities.pageRefresh();
+		Thread.sleep(3000);
+		driverInstance.switchTo().frame(1);
+		Thread.sleep(3000);
+		commonUtilities.Shoptype(shopifyLocators.creditCardNumber, "creditCardNumber"," 4242424242424242");
+		driverInstance.switchTo().defaultContent();
+		driverInstance.switchTo().frame(2);
+		commonUtilities.type(shopifyLocators.nameOnCard, "nameOnCard", rd.get("nameOnCard"));
+		driverInstance.switchTo().defaultContent();
+		driverInstance.switchTo().frame(3);
+		Thread.sleep(3000);
+		commonUtilities.Shoptype(shopifyLocators.cardExpirationDate, "cardExpirationDate", "12/21");
+		driverInstance.switchTo().defaultContent();
+		driverInstance.switchTo().frame(4);
+		commonUtilities.type(shopifyLocators.cardSecurityCode, "cardSecurityCode", rd.get("cardSecurityCode"));
+		driverInstance.switchTo().defaultContent();
+		commonUtilities.click(shopifyLocators.sameAsBilling);
+		Thread.sleep(3000);
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.click(shopifyLocators.payNow);
+		Thread.sleep(5000);
+		commonUtilities.waitForElement(shopifyLocators.orderNumber);
+		oderNumber=commonUtilities.getElementText(shopifyLocators.orderNumber, "OrderNumber");
+		commonUtilities.addScreenshotToStep("");
+		log.info(oderNumber);
+		
+		return oderNumber;
+	}
+	
+	public void OS6OrderVerify(Map<Object, String> testData) throws Exception {
+		extLogger.log(Status.INFO, "Opening OS6 URL and logging into the apllication");
+		String url = testData.get("URL");
+		driverInstance.get(url);
+		commonUtilities.waitForPageLoad();
+		commonUtilities.type(shopifyLocators.email, "OS6 Login Email", testData.get("Email"));
+		commonUtilities.type(shopifyLocators.password, "OS6 Login Password", testData.get("Password"));
+		commonUtilities.addScreenshotToStep("");
+		commonUtilities.click(shopifyLocators.os6Login);
+//		commonUtilities.pageRefresh();
+		Thread.sleep(3000);
+		commonUtilities.click(shopifyLocators.ordersLink);
+		commonUtilities.click(shopifyLocators.ordersSubLink);
+		commonUtilities.type(shopifyLocators.os6OrderSearch, "Shopify store order search in OS6", testData.get("OrderNumber"));
+		Thread.sleep(3000);
+		commonUtilities.addScreenshotToStep("");
+	}
+	}
+XX DAO
+package com.xx.webAutomation.extentReport;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import org.testng.Reporter;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.xx.webAutomation.controllers.SetUpTest;
+
+public class ExtentFactory extends SetUpTest {
+
+	public ExtentReports getInstance(String scenarioMethod) {
+		ExtentHtmlReporter htmlReport = null;
+		String extentPath;
+		// String dateName = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new
+		// Date());
+
+//		if (suiteName.equalsIgnoreCase("tas")) {
+//			String brandName = (String) Reporter.getCurrentTestResult().getTestContext()
+//					.getAttribute("brandName" + Thread.currentThread().hashCode());
+//			
+//			extentPath = reportPath + "\\" + new SimpleDateFormat("MM-dd-yyyy").format(new Date()) + "\\"
+//					+ suiteName.toUpperCase() + "\\" + System.getProperty("testType").toUpperCase() + "\\" + brandName
+//					+ "\\" + scenarioMethod;
+//		} else {
+			extentPath = reportPath + "\\" + new SimpleDateFormat("MM-dd-yyyy").format(new Date()) + "\\"
+					+ suiteName.toUpperCase() + "\\" + strBrand + "\\" + System.getProperty("testType").toUpperCase()
+					+ "\\" + scenarioMethod;
+//		}
+
+		File targetfile = new File(extentPath);
+		if (!targetfile.exists()) {
+			targetfile.mkdirs();
+			htmlReport = new ExtentHtmlReporter(extentPath + "\\" + scenarioMethod + ".html");
+			System.out.println("HTML Report Path: " + extentPath);
+		}
+		ExtentReports extent = new ExtentReports();
+		Locale.setDefault(Locale.ENGLISH);
+		extent.attachReporter(htmlReport);
+		htmlReport.loadXMLConfig(
+				new File(System.getProperty("user.dir") + "\\src\\test\\resources\\extent\\extent-config.xml"));
+		return extent;
+	}
+
+	public ExtentReports getInstance() {
+		ExtentHtmlReporter htmlReport;
+		String extentPath;
+		String dateName = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		extentPath = System.getProperty("user.dir") + "\\Reports\\" + suiteName + "_Test_Report_" + dateName + ".html";
+		htmlReport = new ExtentHtmlReporter(extentPath);
+		// System.out.println("path :"+extentPath);
+		ExtentReports extent = new ExtentReports();
+		Locale.setDefault(Locale.ENGLISH);
+		extent.attachReporter(htmlReport);
+		// extent.setSystemInfo("Environment", (String) props.get("env"));
+		htmlReport.loadXMLConfig(
+				new File(System.getProperty("user.dir") + "\\src\\test\\resources\\extent\\extent-config.xml"));
+		return extent;
+	}
+}
+
+
+Extenet factory
+
+
+package com.shopify.webAutomation.scenarios;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TimeZone;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
+import org.testng.asserts.SoftAssert;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.shopify.webAutomation.common.DBConnections;
+import com.shopify.webAutomation.common.ReadData;
+import com.shopify.webAutomation.controllers.SetUpTest;
+import com.shopify.webAutomation.dao.ShopifyDAO;
+import com.shopify.webAutomation.extentReport.ExtentFactory;
+
+
+public class ShopifyScenarios extends SetUpTest {
+
+	private List<String> minDetails = new ArrayList<>();
+	private String testScenario;
+	private static List<String> t3ciListTimeStamp = new ArrayList<>();
+	private static List<String> kafkaQueStatus = new ArrayList<>();
+	private static int i=0;
+	private WebDriver driverInstance;
+	private ShopifyDAO sdProps;
+	
+	public synchronized ShopifyDAO getShopifyProps(String scenario, Map<Object, String> testData) throws Exception {
+		this.sdProps = new ShopifyDAO(scenario, testData);
+		return sdProps;
+	}
+	
+	
+	public String shopifyStore(Map<Object, String> testData) throws Exception {
+		String oderNumber="";
+		String testCase = testData.get("TestCaseID") + "-" + scenarioName +"-";
+		log.info("Test Case :" + testCase);
+		String testScenario = testCase + new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		setExtentlog(testData, testScenario);
+		ShopifyDAO sdProps = getShopifyProps(testScenario, testData);
+		log.info("Shopify Login");
+		oderNumber=sdProps.shopifyStore(testData);
+		return oderNumber;
+		
+	}
+	
+	public synchronized void setExtentlog(Map<Object, String> testData, String scenario) {
+		try {
+			ExtentFactory extentFactory = new ExtentFactory();
+			ExtentReports extentReport = extentFactory.getInstance(scenario);
+			Reporter.getCurrentTestResult().getTestContext()
+			.setAttribute("extentReport" + Thread.currentThread().hashCode(), extentReport);
+			ExtentTest extlogger = extentReport
+					.createTest(scenario.substring(0, scenario.length() - 19) + "--" + strBrand);
+			extlogger.assignCategory((String) Reporter.getCurrentTestResult().getTestContext()
+					.getAttribute("methodName" + Thread.currentThread().hashCode()));
+			Reporter.getCurrentTestResult().getTestContext()
+			.setAttribute("extLogger" + Thread.currentThread().hashCode(), extlogger);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}
+
+
+xxscenarios
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+	<configuration>
+		<!-- report theme -->
+		<!-- standard, dark -->
+		<theme>standard</theme>
+		<!-- document encoding -->
+		<!-- defaults to UTF-8 -->
+		<encoding>UTF-8</encoding>
+		<!-- protocol for script and stylesheets -->
+		<!-- defaults to https -->
+		<protocol>https</protocol>
+		<!-- title of the document -->
+		<documentTitle>Shopify Test Report</documentTitle>
+		<!-- report name - displayed at top-nav -->
+		<reportName></reportName>
+		<!-- report headline - displayed at top-nav, after reportHeadline -->
+		<reportHeadline>Shopify Test Automation Summary Report</reportHeadline>
+		<!-- global date format override -->
+		<!-- defaults to yyyy-MM-dd -->
+		<dateFormat>yyyy-MM-dd</dateFormat>
+		<!-- global time format override -->
+		<!-- defaults to HH:mm:ss -->
+		<timeFormat>HH:mm:ss</timeFormat>
+		<!-- custom javascript -->
+		<scripts>
+			<![CDATA[
+        $(document).ready(function() {
+          
+        });
+      ]]>
+		</scripts>
+		<!-- custom styles -->
+		<styles>
+			<![CDATA[
+        
+      ]]>
+		</styles>
+	</configuration>
+</extentreports>
+
+Extent config
 
