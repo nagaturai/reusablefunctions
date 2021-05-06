@@ -2090,3 +2090,256 @@ xxscenarios
 
 Extent config
 
+		
+		import java.io.FileInputStream;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import com.xx.webAutomation.controllers.SetUpTest;
+
+public class DBConnections extends SetUpTest {
+
+	public String path = System.getProperty("user.dir");
+	/*
+	 * public CallableStatement cstmt  null; public PreparedStatement pstmt = null;
+	 */
+	public String strDBVal;
+	public String returnValue;
+	public String Status;
+	public String planDays;
+	Logger log = Logger.getLogger(this.getClass());
+	public Map<String, String> getdDBRecords = new HashMap<String, String>();
+
+	private Connection connection;
+	protected Properties dbProps;
+
+	public DBConnections() {
+		{
+			dbProps = new Properties();
+			try {
+				dbProps.load(new FileInputStream(
+						System.getProperty("user.dir") + "/src/main/resources/commonConfig/DB.properties"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void getConnection() throws Exception {
+		if (connection == null) {
+			try {
+				log.info("Opening DB connection");
+				Class.forName((String) dbProps.get("jdbc_Conn"));
+				connection = DriverManager.getConnection((String) dbProps.get(strEnv + "_url"),
+						(String) dbProps.get("db_username"), "");
+				//(String) dbProps.get(strEnv + "_password")
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void closeDBConnection() throws SQLException {
+		if (!connection.isClosed()) {
+			log.info("Closing DB connection");
+			connection.close();
+		}
+	}
+		
+}
+
+DB connectors
+
+		
+		log=target/Logging
+# Define the root logger with appender file
+log4j.rootLogger = INFO,FILE,consoleDisplay
+#Settings the properties for displaying log data in console
+log4j.appender.consoleDisplay=org.apache.log4j.ConsoleAppender
+log4j.appender.consoleDisplay.Target=System.out
+log4j.appender.consoleDisplay.layout=org.apache.log4j.PatternLayout
+log4j.appender.consoleDisplay.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %-17c{2} (%10F:%L) %x - %m%n
+
+# Define the file appender
+log4j.appender.FILE=org.apache.log4j.FileAppender
+# Set the name of the file
+log4j.appender.FILE.File=${log}/TagCmdV5log.out
+# Set the immediate flush to true (default)
+#log4j.appender.FILE.ImmediateFlush=true
+# Set the append to false, should not overwrite
+log4j.appender.FILE.Append=true
+
+# Set the threshold to debug mode
+#log4j.appender.FILE.Threshold=debug
+
+# Set the maximum file size before rollover
+#log4j.appender.FILE.MaxFileSize=1MB
+
+# Set the the backup index
+#log4j.appender.FILE.MaxBackupIndex=2
+
+# Define the layout for file appender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %-17c{2} (%10F:%L) %x - %m%n
+		
+
+		---------------------------log4j.properties
+		
+		#Environment Parameters
+
+tasUserName = itquser
+tasPassword = abcd1234!
+
+udpUserName = admin@aol.com
+udpPassword = abc123
+defaultenv = sit1
+reportPath = C:\\Automation\\Regression_Report
+successimagespath = \\target\\SuccessScreenshots
+UTILS_FILE_PATH = /src//main/java/com/tracfone/webAutomation/config/utils.properties
+failureimagespath = \\target\\FailureScreenshots
+reasonPastDue = PASTDUE Line Status : RESERVED USED
+		
+		-----utils.properties
+		
+	import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TimeZone;
+
+import org.apache.log4j.Logger;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.xx.webAutomation.common.Log4jUtil;
+import com.xx.webAutomation.common.ReadData;
+import com.xx.webAutomation.scenarios.ShopifyScenarios;
+
+
+public class ShopifyTest extends ReadData
+{
+	private Map<Object, String> testData;
+	private String testScenario;
+	Logger log = Log4jUtil.loadLogger(ShopifyTest.class);
+	List<String> minIHDetails = new ArrayList<>();
+	private ShopifyScenarios ss;
+	SoftAssert sa = new SoftAssert();
+	String orderNumber="";
+	@BeforeMethod(alwaysRun = true)
+	public void intialiseObject() throws Exception {
+		ss = new ShopifyScenarios();
+	}
+	
+	@Test(dataProvider = "getCSVDataReader", groups= {"Smoke", "Regression"})
+	public void shopifyLogin(Map<Object, String> testDataVal) throws IOException, Exception 
+	{
+		//TC_RTE_01 Login into the shopify admin page
+		ss.shopifyLogin(testDataVal);
+	}
+	@Test(dataProvider = "getCSVDataReader", groups= {"Test"}, priority=1)
+	public void shopifyStore(Map<Object, String> testDataVal) throws IOException, Exception 
+	{
+		//TC_RTE_02 order from shopify store
+		orderNumber = ss.shopifyStore(testDataVal);
+	}<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+	<configuration>
+		<!-- report theme -->
+		<!-- standard, dark -->
+		<theme>standard</theme>
+		<!-- document encoding -->
+		<!-- defaults to UTF-8 -->
+		<encoding>UTF-8</encoding>
+		<!-- protocol for script and stylesheets -->
+		<!-- defaults to https -->
+		<protocol>https</protocol>
+		<!-- title of the document -->
+		<documentTitle>Shopify Test Report</documentTitle>
+		<!-- report name - displayed at top-nav -->
+		<reportName></reportName>
+		<!-- report headline - displayed at top-nav, after reportHeadline -->
+		<reportHeadline>Shopify Test Automation Summary Report</reportHeadline>
+		<!-- global date format override -->
+		<!-- defaults to yyyy-MM-dd -->
+		<dateFormat>yyyy-MM-dd</dateFormat>
+		<!-- global time format override -->
+		<!-- defaults to HH:mm:ss -->
+		<timeFormat>HH:mm:ss</timeFormat>
+		<!-- custom javascript -->
+		<scripts>
+			<![CDATA[
+        $(document).ready(function() {
+          
+        });
+      ]]>
+		</scripts>
+		<!-- custom styles -->
+		<styles>
+			<![CDATA[
+        
+      ]]>
+		</styles>
+	</configuration>
+</extentreports>
+		
+----- extent config
+		
+		
+		<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- <suite name="web" parallel="methods" thread-count="5"> -->
+<suite name="web" parallel="methods" thread-count="2" data-provider-thread-count="1"> 
+	<listeners>
+		<listener
+			class-name="com.shopify.webAutomation.common.Listeners" />
+	</listeners>
+	<test name="ShopifyTest">
+		<parameter name="browserName" value="chrome" />
+		<classes>
+			<class name="com.shopify.automation.web.ShopifyTest"></class>
+		</classes>
+	</test>
+</suite>
+		
+--------testng
+	
+	@Test(dataProvider = "getCSVDataReader", groups= {"Smoke"},priority=2)
+	public void OS6OrderVerify(Map<Object, String> testDataVal) throws IOException, Exception 
+	{
+		//TC_RTE_03 verify Shopify store order from OS6
+		ss.OS6OrderVerify(testDataVal,orderNumber);
+	}
+	
+	@Test(dataProvider = "getCSVDataReader", groups= {"Smoke"}, priority=1)
+	public void shopifyStoreUS(Map<Object, String> testDataVal) throws IOException, Exception 
+	{
+		//TC_RTE_02 order from shopify store
+		orderNumber = ss.shopifyStore(testDataVal);
+	}
+	
+}
+
+		
+		------ XXTest
+		
